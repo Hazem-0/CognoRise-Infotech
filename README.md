@@ -1,2 +1,2 @@
 # CognoRise-Infotech
-Task of CognoRise Infotech internship 
+Tasks of CognoRise Infotech internship 
