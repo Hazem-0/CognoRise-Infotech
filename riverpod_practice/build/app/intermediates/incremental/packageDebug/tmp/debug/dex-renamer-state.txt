@@ -1,0 +1,4 @@
+#Wed Jul 10 16:10:11 EET 2024
+base.0=D\:\\CognoRise-Infotech\\riverpod_practice\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
