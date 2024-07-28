@@ -1,0 +1,35 @@
+{
+    "name": "bmi_calculator",
+    "short_name": "bmi_calculator",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#0175C2",
+    "theme_color": "#0175C2",
+    "description": "Develop a user-centric Body Mass Index (BMI) calculator app  that facilitates input of weight and height. Upon user input, the app swiftly  computes the BMI by dividing weight (in kilograms) by the square of height (in  meters). Notably, the app's distinctive feature is its capability to classify the BMI  result",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}

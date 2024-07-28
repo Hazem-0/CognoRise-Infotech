@@ -1,5 +1,7 @@
 
-import 'package:cx_final_project/main.dart';
+import 'package:bmi_calculator/widgets//splash_text.dart';
+import 'package:bmi_calculator/provider/colors.dart';
+import 'package:bmi_calculator/screens/gender_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -11,9 +13,9 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  Color color3 = Color(0xFFB71A1A);
+  Color color3 = Color(0xFF95CE9C);
 
-  Color color2 = Color(0xFF2780B8);
+ // Color color2 = Colors.yellowAccent;
 
   Color color1 = Color(0xFFFFEEDC);
 
@@ -28,8 +30,8 @@ class _SplashScreenState extends State<SplashScreen> {
           decoration: BoxDecoration(
             gradient: RadialGradient(
               focal: Alignment.center,
-              focalRadius: 0.05,
-              radius: 1.11,
+              focalRadius: 0.1,
+              radius: 1.2,
               colors: [
                 color1,
                 color3,
@@ -41,27 +43,27 @@ class _SplashScreenState extends State<SplashScreen> {
 
               children: [
                 SizedBox(
-                  height: 260,
+                  height: 280,
                 ),
                 Image.asset(
-                  "assests/images/splash_screen_img.png",
-                  height: 270,
+                  "assests/imgs/bmiLogo.png",
+                  height: 250,
                 ),
-                Text(
-                  "Nile",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 90,
-                    fontFamily: "Loving",
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SplashText(tokenText: "B", textColor:  AppColors.lightRed,),
+                    SplashText(tokenText: "M", textColor: AppColors.lightYellow,),
+                    SplashText(tokenText: "I", textColor: AppColors.lightGreen,),
+                  ],
                 ),
                 SizedBox(height: 50,),
                 CircularProgressIndicator(
                   value: null, // Indeterminate (loading) state
                   strokeWidth: 2.0, // Thickness of the circle
-                  backgroundColor: color2, // Background color
+                  backgroundColor: AppColors.lightYellow, // Background color
                   valueColor:
-                  AlwaysStoppedAnimation<Color>(color1), // Color of the circle
+                  AlwaysStoppedAnimation<Color>(AppColors.lightRed), // Color of the circle
                 ),
               ],
             ),
@@ -87,14 +89,14 @@ class _SplashScreenState extends State<SplashScreen> {
     );
     Future.delayed(
         Duration(
-          seconds: 3,
+          seconds: 4,
         ), () {
-      // Navigator.pushReplacement(
-      //   context,
-      //   MaterialPageRoute(
-      //     builder: (context) =>MyHomePage(title: ""),
-      //   ),
-      // );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) =>GenderScreen(),
+        ),
+      );
     });
   }
 }
