@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo/bloc/bloc/db_bloc.dart';
 import 'package:todo/constants/colors.dart';
+import 'package:todo/constants/tasks_data.dart';
 import 'package:todo/screens/home.dart';
 
 class Splash_screen extends StatefulWidget {
@@ -10,6 +13,7 @@ class Splash_screen extends StatefulWidget {
 
 class _Splash_screenState extends State<Splash_screen> {
 // Green
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +66,16 @@ class _Splash_screenState extends State<Splash_screen> {
     super.dispose();
   }
 
+  void getData() async {
+    tasksData = await BlocProvider.of<DbCubit>(context)
+        .fetchData('SELECT * FROM tasks ')??[{
+  'title':'not-found',
+  'description':'not-found',
+  'color':'Color(0xfff79e89)'
+}];
+    print(tasksData);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -80,5 +94,7 @@ class _Splash_screenState extends State<Splash_screen> {
         ),
       );
     });
+
+    getData();
   }
 }
