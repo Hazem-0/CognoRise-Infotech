@@ -2,14 +2,13 @@ import 'package:bmi_calculator/provider/age_provider.dart';
 import 'package:bmi_calculator/provider/colors.dart';
 import 'package:bmi_calculator/provider/gender_provider.dart';
 import 'package:bmi_calculator/provider/weight_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class WeightAgeBox extends ConsumerWidget {
   String boxName;
   TextEditingController textFieldControler = TextEditingController();
-  WeightAgeBox({required this.boxName});
+  WeightAgeBox({super.key, required this.boxName});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,7 +23,7 @@ class WeightAgeBox extends ConsumerWidget {
     Color fgcolor =
         (gender == 1 || gender == 0) ? AppColors.green : AppColors.coffee;
 
-    void _showTextFieldPopup(String boxName) {
+    void showTextFieldPopup(String boxName) {
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -36,7 +35,6 @@ class WeightAgeBox extends ConsumerWidget {
             ),
             content: TextField(
               keyboardType: TextInputType.number,
-
               style: TextStyle(color: fgcolor),
               controller: textFieldControler,
               autofocus: true,
@@ -47,7 +45,7 @@ class WeightAgeBox extends ConsumerWidget {
                 hintStyle: TextStyle(color: fgcolor),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: fgcolor, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                 ),
               ),
             ),
@@ -83,7 +81,7 @@ class WeightAgeBox extends ConsumerWidget {
     }
 
     return Container(
-      decoration: BoxDecoration(boxShadow: [
+      decoration: BoxDecoration(boxShadow: const [
         BoxShadow(
             color: Color(0x22000000),
             // offset: Offset(2, 2),
@@ -94,7 +92,7 @@ class WeightAgeBox extends ConsumerWidget {
       height: 184,
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Text(
@@ -106,7 +104,7 @@ class WeightAgeBox extends ConsumerWidget {
           ),
           InkWell(
             onTap: () {
-              _showTextFieldPopup(boxName);
+              showTextFieldPopup(boxName);
             },
             child: Text(
               (boxName == "Age") ? age.toString() : weight.toString(),
@@ -125,15 +123,17 @@ class WeightAgeBox extends ConsumerWidget {
                     weightNotifier.minusWeight(0.5);
                   }
                 },
-                child: Icon(Icons.remove, size: 30),
                 style: ButtonStyle(
-                  minimumSize: WidgetStateProperty.all<Size>(Size(50, 50)),
+                  minimumSize:
+                      WidgetStateProperty.all<Size>(const Size(50, 50)),
                   overlayColor:
                       WidgetStateProperty.all<Color>(Colors.transparent),
                   backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
                   foregroundColor: WidgetStateProperty.all<Color>(fgcolor),
-                  shape: WidgetStateProperty.all<CircleBorder>(CircleBorder()),
+                  shape: WidgetStateProperty.all<CircleBorder>(
+                      const CircleBorder()),
                 ),
+                child: const Icon(Icons.remove, size: 30),
               ),
               ElevatedButton(
                 onPressed: () {
@@ -143,15 +143,17 @@ class WeightAgeBox extends ConsumerWidget {
                     weightNotifier.plusWeight(0.5);
                   }
                 },
-                child: Icon(Icons.add, size: 30),
                 style: ButtonStyle(
-                  minimumSize: WidgetStateProperty.all<Size>(Size(50, 50)),
+                  minimumSize:
+                      WidgetStateProperty.all<Size>(const Size(50, 50)),
                   overlayColor:
                       WidgetStateProperty.all<Color>(Colors.transparent),
                   backgroundColor: WidgetStateProperty.all<Color>(Colors.white),
                   foregroundColor: WidgetStateProperty.all<Color>(fgcolor),
-                  shape: WidgetStateProperty.all<CircleBorder>(CircleBorder()),
+                  shape: WidgetStateProperty.all<CircleBorder>(
+                      const CircleBorder()),
                 ),
+                child: const Icon(Icons.add, size: 30),
               ),
             ],
           ),

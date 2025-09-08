@@ -26,7 +26,7 @@ class MainScreen extends ConsumerWidget {
         (gender == 1) ? AppColors.lighterGreen : AppColors.lightCoffee;
     Color fgcolor = (gender == 1) ? AppColors.green : AppColors.coffee;
 
-    void _showResultPopup() {
+    void showResultPopup() {
       showDialog(
         barrierColor: Colors.black12,
         context: context,
@@ -38,9 +38,9 @@ class MainScreen extends ConsumerWidget {
             // shadowColor: Colors.transparent
 
             backgroundColor: bgcolor,
-            titlePadding: EdgeInsets.symmetric(horizontal: 120),
-            title: Padding(
-              padding: const EdgeInsets.all(10),
+            titlePadding: const EdgeInsets.symmetric(horizontal: 120),
+            title: const Padding(
+              padding: EdgeInsets.all(10),
               child: Center(
                 child: Text(
                   'Your BMI:',
@@ -51,7 +51,7 @@ class MainScreen extends ConsumerWidget {
                 ),
               ),
             ),
-            content: Container(
+            content: SizedBox(
               width: 370,
               height: 300,
               child: Column(
@@ -65,45 +65,45 @@ class MainScreen extends ConsumerWidget {
                     ),
                   ),
                   ResultBar(
-                    category: '${resultNotifier.category}',
+                    category: resultNotifier.category,
                   ),
                   //Rating(rating: 2.5, size: 60),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 15,
                       ),
                       Text(
-                        "${weight} Kg",
+                        "$weight Kg",
                         style: TextStyle(
                             fontSize: 18,
                             color: fgcolor,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
-                        "${height} cm",
+                        "$height cm",
                         style: TextStyle(
                             fontSize: 18,
                             color: fgcolor,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 14,
                       ),
                       Text(
-                        "${age}",
+                        "$age",
                         style: TextStyle(
                             fontSize: 18,
                             color: fgcolor,
                             fontWeight: FontWeight.w500),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 12,
                       ),
                       Text(
@@ -117,28 +117,28 @@ class MainScreen extends ConsumerWidget {
                   ),
                   Row(
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         width: 25,
                       ),
                       Text(
                         "Weight ",
                         style: TextStyle(fontSize: 14, color: AppColors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 35,
                       ),
                       Text(
                         "Height",
                         style: TextStyle(fontSize: 14, color: AppColors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 35,
                       ),
                       Text(
                         "Age",
                         style: TextStyle(fontSize: 14, color: AppColors.grey),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 12,
                       ),
                       Text(
@@ -147,10 +147,10 @@ class MainScreen extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  Text(
+                  const Text(
                     "Healthy weight for the height:",
                     style: TextStyle(
                         fontWeight: FontWeight.w400,
@@ -174,12 +174,13 @@ class MainScreen extends ConsumerWidget {
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                       RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30))),
-                  minimumSize: WidgetStateProperty.all<Size>(Size(320, 70)),
+                  minimumSize:
+                      WidgetStateProperty.all<Size>(const Size(320, 70)),
                   backgroundColor: WidgetStateProperty.all<Color>(fgcolor),
                   foregroundColor:
                       WidgetStateProperty.all<Color>(AppColors.backgroundColor),
                 ),
-                child: Text('Close',
+                child: const Text('Close',
                     style:
                         TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
                 onPressed: () {
@@ -198,14 +199,14 @@ class MainScreen extends ConsumerWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text(
+            const Text(
               "Please Modify the values",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             Row(
@@ -219,11 +220,11 @@ class MainScreen extends ConsumerWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             HeightBox(),
-            SizedBox(
+            const SizedBox(
               height: 140,
             ),
             ElevatedButton(
@@ -231,15 +232,16 @@ class MainScreen extends ConsumerWidget {
                     shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(30))),
-                    minimumSize: WidgetStateProperty.all<Size>(Size(350, 70)),
+                    minimumSize:
+                        WidgetStateProperty.all<Size>(const Size(350, 70)),
                     backgroundColor: WidgetStateProperty.all<Color>(fgcolor),
                     foregroundColor: WidgetStateProperty.all<Color>(
                         AppColors.backgroundColor)),
                 onPressed: () {
                   resultNotifier.calculate(weight: weight, height: height);
-                  _showResultPopup();
+                  showResultPopup();
                 },
-                child: Text(
+                child: const Text(
                   "Calculate",
                   style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                 )),

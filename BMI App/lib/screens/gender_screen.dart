@@ -12,6 +12,8 @@ import '../widgets/appBar.dart';
 class GenderScreen extends ConsumerWidget {
   double sliderValue = 170;
 
+  GenderScreen({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     int genderPro = ref.watch(genderProvider);
@@ -25,17 +27,17 @@ class GenderScreen extends ConsumerWidget {
         child: Column(
           // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
-            Text(
+            const Text(
               "Please choose your gender",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
@@ -46,8 +48,8 @@ class GenderScreen extends ConsumerWidget {
                     BoxShadow(
                         color: (genderPro == 1)
                             ? AppColors.cyan
-                            : Color(0x22000000),
-                        offset: Offset(2, 2),
+                            : const Color(0x22000000),
+                        offset: const Offset(2, 2),
                         blurRadius: 10,
                         blurStyle: BlurStyle.outer)
                   ],
@@ -55,7 +57,7 @@ class GenderScreen extends ConsumerWidget {
                   color: AppColors.lighterGreen,
                 ),
                 child: GenderBox(gender: "Male")),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             Container(
@@ -66,8 +68,8 @@ class GenderScreen extends ConsumerWidget {
                     BoxShadow(
                         color: (genderPro == 2)
                             ? AppColors.coffee
-                            : Color(0x22000000),
-                        offset: Offset(2, 2),
+                            : const Color(0x22000000),
+                        offset: const Offset(2, 2),
                         blurRadius: 10,
                         blurStyle: BlurStyle.outer)
                   ],
@@ -75,7 +77,7 @@ class GenderScreen extends ConsumerWidget {
                   color: AppColors.lightCoffee,
                 ),
                 child: GenderBox(gender: "Female")),
-            Spacer(),
+            const Spacer(),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 80.0),
               child: ElevatedButton(
@@ -83,15 +85,18 @@ class GenderScreen extends ConsumerWidget {
                       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(30))),
-                      minimumSize: WidgetStateProperty.all<Size>(Size(350, 70)),
+                      minimumSize:
+                          WidgetStateProperty.all<Size>(const Size(350, 70)),
                       backgroundColor: WidgetStateProperty.all<Color>(fgcolor),
                       foregroundColor: WidgetStateProperty.all<Color>(
                           AppColors.backgroundColor)),
                   onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MainScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MainScreen()));
                   },
-                  child: Text(
+                  child: const Text(
                     "Continue",
                     style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   )),

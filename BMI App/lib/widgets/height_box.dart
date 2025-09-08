@@ -10,6 +10,8 @@ import '../provider/colors.dart';
 class HeightBox extends ConsumerWidget {
   double sliderValue = 170;
 
+  HeightBox({super.key});
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     var height = ref.watch(heightProvider);
@@ -20,7 +22,7 @@ class HeightBox extends ConsumerWidget {
     Color fgcolor = (gender == 1) ? AppColors.green : AppColors.coffee;
 
     TextEditingController textFieldControler = TextEditingController();
-    void _showTextFieldPopup() {
+    void showTextFieldPopup() {
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -42,7 +44,7 @@ class HeightBox extends ConsumerWidget {
                 hintStyle: TextStyle(color: fgcolor),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(color: fgcolor, width: 2.0),
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                 ),
               ),
             ),
@@ -79,7 +81,7 @@ class HeightBox extends ConsumerWidget {
       decoration: BoxDecoration(
         color: bgcolor,
         borderRadius: BorderRadius.circular(30),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
               color: Color(0x22000000),
               blurRadius: 7,
@@ -90,43 +92,43 @@ class HeightBox extends ConsumerWidget {
 
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
-          Text(
+          const Text(
             "Height (cm)",
             style: TextStyle(fontSize: 16, color: Color(0xFFACACAC)),
           ),
-          SizedBox(
+          const SizedBox(
             height: 10,
           ),
           InkWell(
-            onTap: () => _showTextFieldPopup(),
+            onTap: () => showTextFieldPopup(),
             child: Text(
-              "${height}",
+              "$height",
               style: TextStyle(
                   color: fgcolor, fontWeight: FontWeight.bold, fontSize: 48),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           SfSliderTheme(
             data: SfSliderThemeData(
-              activeTickColor: Color(0xFFC4C4C4),
-              inactiveTickColor: Color(0xFFC4C4C4),
-              activeMinorTickColor: Color(0xFFC4C4C4),
-              inactiveMinorTickColor: Color(0xFFC4C4C4),
-              tooltipTextStyle:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              activeTickColor: const Color(0xFFC4C4C4),
+              inactiveTickColor: const Color(0xFFC4C4C4),
+              activeMinorTickColor: const Color(0xFFC4C4C4),
+              inactiveMinorTickColor: const Color(0xFFC4C4C4),
+              tooltipTextStyle: const TextStyle(
+                  color: Colors.black, fontWeight: FontWeight.bold),
               tooltipBackgroundColor: bgcolor,
               overlayColor: Colors.transparent,
               thumbColor: fgcolor,
               activeTrackColor: Colors.transparent,
               inactiveTrackColor: Colors.transparent,
-              tickSize: Size(3.0, -30.0),
-              minorTickSize: Size(3.0, -15.0),
-              tickOffset: Offset(0.0, 35.0),
+              tickSize: const Size(3.0, -30.0),
+              minorTickSize: const Size(3.0, -15.0),
+              tickOffset: const Offset(0.0, 35.0),
             ),
             child: SfSlider(
               thumbShape: _SfThumbShape(),

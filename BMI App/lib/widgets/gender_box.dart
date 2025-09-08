@@ -4,29 +4,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class GenderBox extends ConsumerWidget {
-  String gender ;
+  String gender;
 
-  GenderBox({required this.gender});
+  GenderBox({super.key, required this.gender});
 
   @override
-  Widget build(BuildContext context ,WidgetRef ref) {
-
-    int genderPro=ref.watch(genderProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    int genderPro = ref.watch(genderProvider);
     var genderNotifier = ref.watch(genderProvider.notifier);
     return Padding(
       padding: const EdgeInsets.all(20.0),
       child: InkWell(
-        onTap: ()=>(gender=="Male")?genderNotifier.state=1:genderNotifier.state=2,
+        onTap: () => (gender == "Male")
+            ? genderNotifier.state = 1
+            : genderNotifier.state = 2,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(gender,style: TextStyle(fontSize: 32 ,fontWeight: FontWeight.bold ,color: (gender=="Male")?AppColors.darkGreen:AppColors.coffee),),
-            SizedBox(width: 20,),
-              CircleAvatar(
-                backgroundColor: Colors.transparent,
-                radius: 80,
-                backgroundImage: AssetImage((gender=="Male")?"assests/imgs/male.png":"assests/imgs/female.png"),
-              ),
+            Text(
+              gender,
+              style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: (gender == "Male")
+                      ? AppColors.darkGreen
+                      : AppColors.coffee),
+            ),
+            const SizedBox(
+              width: 20,
+            ),
+            CircleAvatar(
+              backgroundColor: Colors.transparent,
+              radius: 80,
+              backgroundImage: AssetImage((gender == "Male")
+                  ? "assets/imgs/male.png"
+                  : "assets/imgs/female.png"),
+            ),
           ],
         ),
       ),

@@ -10,6 +10,8 @@ class ResultBar extends StatelessWidget {
   ResultBar({
     Key? key,
     required this.category,
+    this.color,
+    this.left,
   }) {
     if (category == 'Underweight') {
       color = AppColors.yellow;
@@ -27,7 +29,7 @@ class ResultBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        SizedBox(
           width: 500,
           height: 50,
           child: Row(
@@ -466,7 +468,7 @@ class ResultBar extends StatelessWidget {
               height: 25,
               decoration: BoxDecoration(
                   color: color,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.elliptical(
                       200,
                       200,

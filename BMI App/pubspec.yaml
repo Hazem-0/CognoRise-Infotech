@@ -44,7 +44,7 @@ dependencies:
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true
-  image_path: "assests/imgs/bmiIcon.png"
+  image_path: "assets/imgs/bmiIcon.png"
 
 dev_dependencies:
   flutter_test:
@@ -70,10 +70,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assests/imgs/bmiIcon.png
-    - assests/imgs/bmiLogo.png
-    - assests/imgs/female.png
-    - assests/imgs/male.png
+    - assets/imgs/bmiIcon.png
+    - assets/imgs/male.png
+    - assets/imgs/female.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -89,11 +88,11 @@ flutter:
   fonts:
     - family: Loving
       fonts:
-        - asset: assests/fonts/Loving.otf
-        - asset: assests/fonts/Loving.ttf
+        - asset: assets/fonts/Loving.otf
+        - asset: assets/fonts/Loving.ttf
     - family: TacOne
       fonts:
-        - asset: assests/fonts/TacOne-Regular.ttf
+        - asset: assets/fonts/TacOne-Regular.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
