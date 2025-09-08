@@ -19,8 +19,10 @@ A clean,  Flutter application to calculate Body Mass Index (BMI) with a simple, 
   
 ## Screens
 - `GenderScreen`
-![[Screenshot_1757347202.png]]
+-![GenderScreen](assets/imgs/Screenshot_1757347202.png)
 - `MainScreen` (entry to flow)![[Screenshot_1757347205.png]]
+![MainScreen](assets/imgs/Screenshot_1757347205.png)
 
-- Result section (`ResultBar`) embedded in the main flow![[Screenshot_1757347212.png]]
+- Result section (`ResultBar`) embedded in the main flow
+![ResultBar](assets/imgs/Screenshot_1757347212.png)
 
